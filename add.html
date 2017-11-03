@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<title>CronJob - Add</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#157878">
+<script type="text/javascript">
+//<![CDATA[
+var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-50691719-3']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1496501321,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"1db71b184bc34686d20b8a5f4dca500f",petok:"f99b5e41617987cc25633de0138ee0e04f0f3b44-1497087623-1800",zone:"daniil.it",rocket:"a",apps:{"ga_key":{"ua":"UA-50691719-3","ga_bs":"2"}}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=85b614c0f6/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/style.css">
+ 
+
+<link rel="shortcut icon" href="/MadelineProto/favicons/favicon.ico?v=15d439428a351e2406fb23ca59d929caaa61dfe5">
+</head>
+<body>
+<section class="page-header">
+<h1 class="project-name">CronJob APIs</h1>
+<a href="https://telegram.me/luckymls" class="btn">Contact Me</a>
+</section>
+<section class="main-content">
+<h2 id="method-accountchangephone">Method: Add</h2>
+<p><a href="/api/cronjob/documentation.html">Back to methods index</a></p>
+<h3 id="parameters">Parameters:</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td style="text-align: center">Int</td>
+<td style="text-align: center">Yes</td>
+<td style="text-align: left"><code>The number of minutes that must pass between a request and another</code> </td>
+</tr>
+<tr>
+<td>url</td>
+<td style="text-align: center">String</td>
+<td style="text-align: center">Yes</td>
+<td style="text-align: left"><code>Url to recall <b>Note:</b> must start with http or https</code> </td>
+
+</tr>
+<tr>
+
+</tbody>
+</table>
+<h3 id="return-type-user">Return Json (Success): <font color="grey"> {"ok": true, "result": { "id": 10202002 } }</font></h3>
+<h3 id="example">Example:</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+$postdata = http_build_query(
+    array(
+        'add' => '10',
+        'url' => 'https://example.com?request=1'
+    )
+);
+
+$opts = array('http' =>
+array( 
+'method'  => 'GET',
+        'content' => $postdata));
+
+$context  = stream_context_create($opts);
+$result = file_get_contents('http://channelbot.altervista.org/api/cronjob/cronjob.php', false, $context);
+$result = json_decode($result, true);
+if($result[ok])
+return true;
+else return false;
+$id = $result[result][id];
+
+</code></pre>
+</div>
